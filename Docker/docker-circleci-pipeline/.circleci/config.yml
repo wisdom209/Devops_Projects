@@ -1,0 +1,9 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+      - run: docker build -t demo-cicd-app
+      - run: docker run -p 8080:80 demo-cicd-app
