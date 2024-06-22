@@ -1,0 +1,11 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/Devops_Projects/Docker/docker-circleci-pipeline
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout ~/Devops_Projects
+      - cwd: ../Docker/docker-circleci-pipeline
+      - run: docker build -t demo-cicd-app
+      - run: docker run -dit --name demo-cicd-app -p 8080:80 demo-cicd-app
