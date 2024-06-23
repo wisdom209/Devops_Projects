@@ -3,7 +3,7 @@ jobs:
   test:
     working_directory: ~/Devops_Projects/Docker/docker-circl    eci-pipeline
     docker:
-      image: python:3.9
+      - image: python:3.9
     steps:
       - checkout:
           path: ~/Devops_Projects
