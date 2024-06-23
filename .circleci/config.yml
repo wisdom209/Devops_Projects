@@ -1,5 +1,4 @@
 version: 2.1
-defaults: 
 jobs:
   test:
     working_directory: ~/Devops_Projects/Docker/docker-circl    eci-pipeline
