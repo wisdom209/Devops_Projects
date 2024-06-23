@@ -10,15 +10,19 @@ jobs:
       - run: pip3 install -r requirements.txt
       - run: pytest
   build-and-push:
+    machine:
+      image: ubuntu-2004:current
     working_directory: ~/Devops_Projects/Docker/docker-circleci-pipeline
-    docker:
-      - image: docker:latest
     steps:
-      - checkout:
-          path: ~/Devops_Projects
-      - run: docker build -t wisdom209/demo-flask-app .
+      - checkout
+      - run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          docker build -t wisdom209/demo-flask-app
+          docker push wisdom209/demo-flask-app
 workflows:
   test-and-build:
     jobs:
       - test
-      - build-and-push
+      - build-and-push:
+          requires:
+            - test
