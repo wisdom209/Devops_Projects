@@ -21,7 +21,7 @@ jobs:
           docker build -t wisdom209/demo-flask-app .
           docker push wisdom209/demo-flask-app
           # use render redeploy hook to redeploy service
-          curl https://api.render.com/deploy/srv-cprpih2j1k6c738ce430?key=agoOspUTHd4
+          curl $REDEPLOY_HOOK
 workflows:
   test-and-build:
     jobs:
