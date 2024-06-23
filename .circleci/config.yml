@@ -16,12 +16,11 @@ jobs:
     steps:
       - checkout:
           path: ~/Devops_Projects
-      - run: |
-          docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker build -t wisdom209/demo-flask-app .
-          docker push wisdom209/demo-flask-app
-          # use render redeploy hook to redeploy service
-          curl $REDEPLOY_HOOK
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker build -t wisdom209/demo-flask-app .
+      - run: docker push wisdom209/demo-flask-app
+      # use render redeploy hook to redeploy service
+      - run: curl $REDEPLOY_HOOK
 workflows:
   test-and-build:
     jobs:
