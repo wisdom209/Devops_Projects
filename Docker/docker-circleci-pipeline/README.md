@@ -1,12 +1,8 @@
-# CI/CD Pipeline using Docker and CircleCI
+# CI/CD DevOps Project
 
-## Description
+##  Overview
 
-A simple CI/CD pipeline built using Docker, CircleCI, and GitHub.
+- This project demonstrates a CI/CD pipeline using CircleCI for continuous integration and deployment, Docker for containerization, and  Render for hosting and serving the web service of a minimal flask app. 
 
-
-## Project Structure
-
-* `config.yml`: The pipeline script
-* `README.md`: This file!
+- The pipeline automates testing, building, and deployment of the app.
 
