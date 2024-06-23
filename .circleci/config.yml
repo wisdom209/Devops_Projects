@@ -15,6 +15,7 @@ jobs:
     working_directory: ~/Devops_Projects/Docker/docker-circleci-pipeline
     steps:
       - checkout
+          path: ~/Devops_Projects
       - run: |
           ls
           docker login -u $DOCKER_USER -p $DOCKER_PASS
