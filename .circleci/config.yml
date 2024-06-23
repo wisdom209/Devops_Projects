@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASS
-          docker build -t wisdom209/demo-flask-app
+          docker build -t wisdom209/demo-flask-app .
           docker push wisdom209/demo-flask-app
 workflows:
   test-and-build:
