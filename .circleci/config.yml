@@ -2,7 +2,8 @@ version: 2.1
 jobs:
   test:
     working_directory: ~/Devops_Projects/Docker/docker-circl    eci-pipeline
-    image: python:3.9
+    docker:
+      image: python:3.9
     steps:
       - checkout:
           path: ~/Devops_Projects
@@ -16,8 +17,8 @@ jobs:
       - checkout:
           path: ~/Devops_Projects
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: docker build -t wisdom209/demo-flask-app
-      - docker push
+      - run: docker build -t wisdom209/demo-flask-app .
+      - docker push wisdom209/demo-flask-app
 workflows:
   test-and-build:
     jobs:
