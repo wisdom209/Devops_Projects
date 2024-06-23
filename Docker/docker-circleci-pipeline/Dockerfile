@@ -1,11 +1,11 @@
-# Set the base image
-FROM nginx:latest
+FROM python:3.9-slim
 
-# Copy index.html into the container
-COPY index.html /usr/share/nginx/html
+WORKDIR /app
 
-# Expose port 80
-EXPOSE 80
+COPY requirements.txt /app
 
-# Run nginx when container starts, specify setting to run container on foreground
-CMD ["nginx", "-g", "daemon off;"]
+RUN pip3 install -r requirements.txt
+
+COPY . /app
+
+CMD ["python3", "app.py"]
