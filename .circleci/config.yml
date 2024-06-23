@@ -17,8 +17,8 @@ jobs:
       - checkout:
           path: ~/Devops_Projects
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - run: sudo docker build -t wisdom209/demo-flask-app .
-      - run: sudo  docker push wisdom209/demo-flask-app
+      - run: docker build -t wisdom209/demo-flask-app .
+      - run: docker push wisdom209/demo-flask-app
 workflows:
   test-and-build:
     jobs:
