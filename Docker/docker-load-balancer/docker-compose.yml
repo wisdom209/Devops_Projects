@@ -1,0 +1,17 @@
+services:
+  app1:
+    build: ./app
+    container_name: app1
+  app2:
+    build: ./app
+    container_name: app2
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - "3000:80"
+    volumes:
+      - .:/etc/nginx/
+    depends_on:
+      - app1
+      - app2
